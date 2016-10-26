@@ -321,8 +321,24 @@ private:
 			cout << "there is no node at that position" << endl;
 		}
 	}
+	node<T>* copy(node<T>* other)
+	{
+		if (other == NULL)
+		{
+			return NULL;
+		}
+		node* subTreeRoot = new node<T>(other.root->data, NULL, NULL);
+		this->subTreeRoot->left = copy(other->left);
+		this->subTreeRoot->right = copy(other->right);
+		delete subTreeRoot;
+	}
 	
 public:
+	bt(const bt<T> &other)
+		:root(nullptr)
+	{
+		this->root = copy(other.root);
+	}
 	void add(const T& newData, const char* trace)// zashto po psevdonim
 	{
 		addPrivate(newData, trace, root);
