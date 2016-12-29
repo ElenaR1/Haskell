@@ -1,3 +1,22 @@
+increasing :: [Int]->Bool
+increasing []=True
+increasing(x:[])=True
+increasing(x:y:[])=x<y
+increasing(x:y:xs)
+  |x<y=increasing(y:xs)
+  |otherwise=False
+  
+  
+  
+{-increasing xs= if xs==[]
+  then True
+ else if tail xs==[]
+  then True
+ else if head xs<=head(tail xs)
+then increasing (tail xs)
+ else False-}
+
+
 import Test.HUnit
 
 -- Write a function that checks whether the elements in a given list of integers
