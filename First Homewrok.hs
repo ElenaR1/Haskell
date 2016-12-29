@@ -6,7 +6,7 @@ increasing(x:y:xs)
   |x<y=increasing(y:xs)
   |otherwise=False
   
-  
+
   
 {-increasing xs= if xs==[]
   then True
@@ -15,6 +15,27 @@ increasing(x:y:xs)
  else if head xs<=head(tail xs)
 then increasing (tail xs)
  else False-}
+ 
+ 
+ {-watch::Int->[Char]
+ watch n
+  |n==7= "it's 7 o'clock"
+  |otherwise= show n++ " o'clock and all's wel"-}
+  
+ len::[a]->Int
+ len []=0
+ len (x:xs)=1+len xs
+ 
+ summ::[Int]->Int
+ summ []=0
+ summ (x:xs)=x+ sum xs
+ 
+ maximumm::[Int]->Int
+ maximumm [x]=x
+ maximumm (x:xs)
+   |x>mx=x
+   |otherwise=mx
+   where mx=maximumm xs
 
 
 import Test.HUnit
