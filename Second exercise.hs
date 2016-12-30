@@ -55,6 +55,7 @@ tests = test [ "Test for value 2" ~: "" ~: 0 ~=? (fib 0),
                "Test for value 15" ~: "" ~: 610 ~=? (fib 15)]
                
                
+
 -- Hey yo. Write a function that, given a string and a shift value,
 -- returns a new string with all of its characters shifted by the given value.
 -- Example:
@@ -67,9 +68,11 @@ tests = test [ "Test for value 2" ~: "" ~: 0 ~=? (fib 0),
 alphabet :: String
 alphabet = ['a'..'z']
 nextChar::Char->Char
-nextChar ' '=' '
-nextChar 'z'='a'
-nextChar x=head (tail lst)
+nextChar x
+  |x== ' '=' '
+  |x=='z'='a'
+  |elem x alphabet=head (tail lst)
+  |otherwise=x
   where lst=[x..'z']--definiram neshto koeto izpolzvam samo v tazi f-q
   
 shiftCharBy::Char->Int->Char
@@ -89,9 +92,11 @@ prevCharHelper a (x:xs)
 
 
 previousChar::Char->Char
-previousChar ' '=' '
-previousChar 'a'='z'
-previousChar x=prevCharHelper x ['a'..x]
+previousChar x
+  |x==' '=' '
+  |x=='a'='z'
+  |elem x alphabet=prevCharHelper x ['a'..x]
+  |otherwise=x
 
 shiftCarBy::Char->Int->Char
 shiftCarBy x 0=x
