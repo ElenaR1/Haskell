@@ -132,3 +132,62 @@ tests = test [ "Check (0,0)" ~: "" ~: Nothing ~=? (quadrant (0,0)),
                "Check for fourth quadrant" ~: "" ~: Just 4 ~=? (quadrant (5,-12)),
                "Check (0,y)" ~: "" ~: Nothing ~=? (quadrant (0, 2)),
                "Check (x,0)" ~: "" ~: Nothing ~=? (quadrant (2,0))]
+	       
+import Test.HUnit
+-- Write a funciton that reverses a given list of integers
+myReverse :: [Int] -> [Int]
+-- Solution goes here
+myReverse []=[]
+myReverse [x]=[x]
+myReverse (x:xs)=(myReverse xs) ++[x]
+-- Test cases
+tests = test [ "Reverse an empty list" ~: "" ~: [] ~=? (myReverse []),
+               "Reverse a list with only one element" ~: "" ~: [2] ~=? (myReverse [2]),
+               "Reverse a list with more than one element" ~: "" ~: [101,100..1] ~=? (myReverse [1..101])]
+
+import Test.HUnit
+-- Write a function that takes a list of words and creates a sentence out of it.
+-- Note the type declaration
+sentence :: [String] -> String
+-- Solution goes here
+sentence []=""
+sentence [x]= x
+sentence (x:xs)=x ++ " " ++ sentence xs
+--sentence (xs)=unwords xs
+--words and unwords are for splitting a line of text into words or joining a list of words into a text. Very useful.
+-- Test cases
+tests = test [ "Sentence made from an empty list" ~: "" ~: "" ~=? (sentence []),
+               "Sentence with a couple of words in it" ~: "" ~: "I am a sentence!" ~=? (sentence ["I", "am", "a", "sentence!"])]
+
+
+import Test.HUnit
+-- Write a function that takes the first n elements of a given list
+myTake :: Int -> [Int] -> [Int]
+-- Solution goes here
+myTake index [] =[]
+myTake index xs
+  |index > length xs=xs
+  |index < 0=[]
+  |index==0=[]
+  |otherwise= head xs : (myTake (index-1) (tail xs))
+-- Test cases
+tests = test [ "Get something from an empty list" ~: "" ~: [] ~=? (myTake 23 []),
+               "Get more elements than the list actually has" ~: "" ~: [1..111] ~=? (myTake 200 [1..111]),
+               "Get a negative amount of elements" ~: "" ~: [] ~=? (myTake (-3) [1..101])]
+
+
+import Test.HUnit
+-- Implement the exclusive or (xor) function
+xor :: Bool -> Bool -> Bool
+-- Solution goes here
+xor a b
+  |a==True&&b==True=False
+  |a==False&&b==False=False
+  |a==True&&b==False=True
+  |a==False&&b==True=True
+-- Test cases
+tests = test [ "Both arguments hold" ~: "" ~: False ~=? (True `xor` True),
+               "Both arguments do not hold" ~: "" ~: False ~=? (False `xor` False),
+               "First argument holds" ~: "" ~: True ~=? (True `xor` False),
+               "Second argument holds" ~: "" ~: True ~=? (False `xor` True)]
+
