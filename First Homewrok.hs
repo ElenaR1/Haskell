@@ -50,6 +50,16 @@ tests = test [ "Empty list" ~: "" ~: True ~=? (descending []),
                "A bigger list in descending order" ~: "" ~: True ~=? (descending [101,100..1])]
 
 			   increasing :: [Int]->Bool
+			   
+descending::[Int]->Bool
+descending []=True
+descending [x]=True
+descending (x:xs)
+  |x>head xs=descending xs
+  |otherwise=False
+  
+
+
 {-increasing []=True
 increasing(x:[])=True
 increasing(x:y:[])=x<y
@@ -93,6 +103,14 @@ tests = test [ "Try to get the third element of an empty list" ~: "" ~: Nothing 
                "Get the 42nd element of 1..100" ~: "" ~: Just 42 ~=? (myListRef [1..101] 41),
                "Try to get the -3rd element of a list" ~: "" ~: Nothing ~=? (myListRef [1,2,3] (-3))]
 
+
+
+
+myListRef :: [Int] -> Int -> Maybe Int
+myListRef [] n=Nothing
+myListRef (x:xs) n
+  |n==0=Just x
+  |otherwise=myListRef xs (n-1)
 
 
 import Test.HUnit
