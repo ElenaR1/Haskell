@@ -19,6 +19,14 @@
    |x>mx=x
    |otherwise=mx
    where mx=maximumm xs
+   
+   maxx::[Int]->Int
+maxx (x:xs)=maxh xs x
+maxh::[Int]->Int->Int
+maxh []  manxum=manxum
+maxh (x:xs) manxum
+  |x>manxum=maxh xs x
+  |otherwise=maxh xs manxum
 
 
 import Test.HUnit
