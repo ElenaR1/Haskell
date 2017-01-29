@@ -23,7 +23,7 @@ compose f1 f2 = (\x->f1(f2 x))
 
 --or:
 compose::(a->a)->(b->a)->(b->a)--v tetradkata
-compose nullFunc notFunc=(\x->notFunc(nullFunc x))
+compose nullFunc notFunc=(\x->notFunc(nullFunc x))//trqbva da e compose notFunc nullFunc
 
 
 nullFunc::[]->Bool
@@ -35,6 +35,23 @@ notFunc::Bool->Bool
 notFunc pred
   |pred==True=False
   |pred==False=True
+
+
+--taka moga da go testvam 
+compose::(a->a)->(b->a)->(b->a)
+compose f g x=(f(g x))
+
+
+nullFunc::[a]->Bool
+nullFunc xs
+  |null xs=True
+  |otherwise=False
+  
+notFunc::Bool->Bool
+notFunc pred
+  |pred==True=False
+  |pred==False=True
+
 
 
 f1::Int->Int
