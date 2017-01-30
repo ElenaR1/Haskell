@@ -26,7 +26,7 @@ compose::(a->a)->(b->a)->(b->a)--v tetradkata
 compose nullFunc notFunc=(\x->notFunc(nullFunc x))//trqbva da e compose notFunc nullFunc
 
 
-nullFunc::[]->Bool
+nullFunc::[a]->Bool
 nullFunc xs
   |null xs=True
   |otherwise=False
@@ -64,11 +64,16 @@ f2 x= 2*xf2 x= 2*x
 
 
 --3
-lengthEncode::[Int]->String
-lengthEncode xs=lengthEncodeHelper xs "" 0
+lengthEncode1::[Char]->[Char]
+lengthEncode1 []=[]
+lengthEncode1 (x:xs)='length(takeWhile (== x) (x:xs))' : x :l engthEncode1 (dropWhile (== x) (x:xs))
 
-lengthEncodeHelper::[Int]->String->Int->String
-lengthEncodeHelper (x:xs) str count
-  |x==head xs=lengthEncodeHelper xs [x]++str (count + 1)
-  |
-  |otherwise=
+lengthEncode::[Char]->[(Char,Int)]
+lengthEncode []=[]
+lengthEncode xs=(head xs,length(takeWhile (==(head xs)) xs)):lengthEncode (dropWhile (==(head xs)) xs)
+
+-- ???
+lengthEncode2::[Char]->[(Char,Int)]
+lengthEncode2 []=[]
+lengthEncode2 (x:xs)=(x,length(takeWhile (==x) (x:xs))):lengthEncode2 (dropWhile (==x) (x:xs))
+
