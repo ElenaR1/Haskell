@@ -1,3 +1,12 @@
+--Dali duljinata na vseki string = elementa ot drugiq spisuk ["abc","cdef","a"] [3,4,1]-da
+func::[String]->[Int]->Bool
+func [] []=True
+func (x:xs) (y:ys)
+  |length x==y=func xs ys
+  |otherwise=False
+
+
+
 --countOccurences [1,2,4,5,2,3,2] 2->3
 countOccurences::(Eq a)=>[a]->a->Int
 countOccurences xs a=countOccurencesHelper xs a 0
