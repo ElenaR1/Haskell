@@ -63,6 +63,34 @@ f2 x= 2*xf2 x= 2*x
 --compose::(d->b)->(c->d)->(c->b)
 
 
+take3rd2::[Int]->Int
+take3rd2 xs =xs!!3
+ 
+take3rd::[Int]->Int
+take3rd =(!!3)--porazbira se che priema spisuk
+ 
+--greaterthan3::[Int]->[Int]
+--greaterthan3 []=[]
+--greaterthan3 xs=filter (>3) xs
+ 
+greaterthan3::[Int]->[Int]
+--greaterthan3 []=[] s tozi red ne raboti
+greaterthan3 = filter (>3)
+ 
+--[1,5,7,9,0,10,14]->10
+take3rdGt3::[Int]->Int
+--take3rdGt3 xs=take3rd(greaterthan3 xs)
+take3rdGt3=(!!3).(filter (>3))
+--take3rdGt3 xs=(filter (>3) xs)!!3
+--take3rdGt3 =(filter (>3))!!3 ?? ne stava
+--take3rdGt3 =take3rd(greaterthan3) ne stava
+ 
+take3rdGt3Second::[Int]->Int
+--take3rdGt3Second xs=(take3rd.greaterthan3) xs
+take3rdGt3Second =take3rd.greaterthan3
+
+
+
 --3
 lengthEncode1::[Char]->[Char]
 lengthEncode1 []=[]
