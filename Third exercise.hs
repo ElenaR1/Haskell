@@ -95,6 +95,7 @@ take3rdGt3Second =take3rd.greaterthan3
 lengthEncode1::[Char]->[Char]
 lengthEncode1 []=[]
 lengthEncode1 (x:xs)=head(show (length(takeWhile (== x) (x:xs)))) : x : lengthEncode1 (dropWhile (== x) (x:xs))
+--((head . show . length . (takeWhile (== x))) $ (x:xs))
 
 
 
