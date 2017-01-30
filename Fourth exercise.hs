@@ -127,10 +127,12 @@ remove n (x:xs)
   
 sortBy::(Ord a)=>(a->a->a)->[a]->[a]
 sortBy f []=[]
-sortBy f xs=(foldl f (head xs) xs):sortBy (remove (foldl f (head xs)) xs)
+sortBy f xs=minElement:sortBy f (remove minElement xs)
+  where minElement=foldl f (head xs) xs
+
 
 --foldl min (head [3,1,5,2]) [3,1,5,2]->1
---fildl func 4 [4,3,1,2]->1
+--foldl func 4 [4,3,1,2]->1
 func::(Ord a)=>a->a->a
 func x y
   |x<y=x
