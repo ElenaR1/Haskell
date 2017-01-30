@@ -118,7 +118,7 @@ sort' xs=(minElement xs):sort' (remove (minElement xs) xs)
 
  --(expr,expr)
 
-
+--8 github ??
 remove::(Eq a)=>a->[a]->[a]
 remove n []=[]
 remove n (x:xs)
@@ -136,6 +136,16 @@ func x y
   |x<y=x
   |otherwise=y
 
+
+--9 github
+replicate'::[a]->Int->[a]
+replicate' xs n=replicatef xs n n
+
+replicatef::[a]->Int->Int->[a]
+replicatef [] n originalN=[]
+replicatef (x:xs) n originalN
+  |n==0=replicatef xs originalN originalN
+  |otherwise=x: replicatef (x:xs) (n-1) originalN
 
 
 
