@@ -18,3 +18,6 @@ func2 xs y=map (\f->f y) xs
 
 func3::[(a->a)]->a->[a]
 func3=map(\a f-> f a)
+
+asdf :: a -> [a -> b] -> [b]
+asdf = (zipWith (flip ($))) . repeat
