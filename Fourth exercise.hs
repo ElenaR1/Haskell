@@ -119,6 +119,23 @@ sort' xs=(minElement xs):sort' (remove (minElement xs) xs)
  --(expr,expr)
 
 
+remove::(Eq a)=>a->[a]->[a]
+remove n []=[]
+remove n (x:xs)
+  |x==n=xs
+  |otherwise=x:remove n xs  
+  
+sortBy::(Ord a)=>(a->a->a)->[a]->[a]
+sortBy f []=[]
+sortBy f xs=(foldl f (head xs) xs):sortBy (remove (foldl f (head xs)) xs)
+
+--foldl min (head [3,1,5,2]) [3,1,5,2]->1
+--fildl func 4 [4,3,1,2]->1
+func::(Ord a)=>a->a->a
+func x y
+  |x<y=x
+  |otherwise=y
+
 
 
 
