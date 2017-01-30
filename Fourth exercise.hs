@@ -70,6 +70,10 @@ group'::(Eq a)=>[a]->[[a]]
 group' []=[]
 group' (x:xs)=takeWhile (==x) (x:xs) : group' (dropWhile (==x) (x:xs))
 
+--group'::(Eq a)=>[a]->[[a]]
+--group' []=[]
+--group' (x:xs)=[takeWhile (==x) (x:xs)] ++ group' (dropWhile (==x) (x:xs))
+
 --minElement
 minElement::(Ord a)=>[a]->a
 minElement (x:xs)=minElementHelper xs x
