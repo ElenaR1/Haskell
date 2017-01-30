@@ -31,20 +31,17 @@ myFilter f (x:xs)
 
 
 
-
--da vzemem kolona
 type Matrix a=[[a]]
 type Column a=[a]
+--vzima kolona
 nthCol::Matrix Int->Int->Column Int
+nthCol [] n=[]
 nthCol xs n=map (!!n) xs
-  
---da vzemem reda
-type Matrix a=[[a]]
-type Column a=[a]
-nthCol::Matrix Int->Int->Column Int
-nthCol =(!!) --=nthCol xs n=xs!!n
---nthCol xs n=map (!!n) xs
-
+--vzima red
+type Row a=[a]
+nthRow:: Matrix Int->Int->Row Int
+--nthRow xs n=xs!!n
+nthRow =(!!)
 
 any'::(a->Bool)->[a]->Bool
 any' f []=False
