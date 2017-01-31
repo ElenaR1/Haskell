@@ -38,6 +38,7 @@ func3=map(\a f-> f a)
 func3::a->[(a->a)]->[a]
 func3 a=map(\f-> f a)
 
+asdf 2 [f,g]->[4,6]
 asdf :: a -> [a -> b] -> [b]
 asdf = (zipWith (flip ($))) . repeat
 
