@@ -196,6 +196,10 @@ suff::[a]->[[a]]
 suff xs=[drop x xs| x<-[0..length xs-1]]
 --[1,2,3]->[[1,2,3],[2,3],[3]]
 
+f::[a]->[[a]]
+f xs=[take x xs| x<-[length xs,length xs-1..1]]
+--[1,2,3]->[[1,2,3],[1,2],[1]]
+ 
 
 
 sublist::(Eq a)=>[a]->[a]->Bool
