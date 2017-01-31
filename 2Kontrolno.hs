@@ -19,5 +19,9 @@ func2 xs y=map (\f->f y) xs
 func3::[(a->a)]->a->[a]
 func3=map(\a f-> f a)
 
+--taka raboti no iskame da nqmame nikakvi argumenti,a taka imame a
+func3::a->[(a->a)]->[a]
+func3 a=map(\f-> f a)
+
 asdf :: a -> [a -> b] -> [b]
 asdf = (zipWith (flip ($))) . repeat
