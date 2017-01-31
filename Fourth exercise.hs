@@ -137,6 +137,27 @@ func::(Ord a)=>a->a->a
 func x y
   |x<y=x
   |otherwise=y
+  
+--po-obshto reshenie 
+remove::(Eq a)=>a->[a]->[a]
+remove n []=[]
+remove n (x:xs)
+  |x==n=xs
+  |otherwise=x:remove n xs  
+  
+-- minl (\x y -> length x < length y) ["strings","about","to","get","sorted"]->"to"
+minl::(Ord a)=>(a->a->Bool)->[a]->a
+minl f (x:xs)=minLen f x xs
+
+minLen::(a->a->Bool)->a->[a]->a
+minLen f min []=min
+minLen f min (x:xs)
+  |f x min==True=minLen f x xs
+  |otherwise=minLen f min xs
+
+sortBy::(Ord a)=>(a->a->Bool)->[a]->[a]
+sortBy f []=[]
+sortBy f xs=(minl f xs):sortBy f (remove (minl f xs) xs)
 
 
 --9 github
