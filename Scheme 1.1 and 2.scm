@@ -297,6 +297,15 @@ fib(4) + fib(3)
 	    (else (+ (* 10 (dec->bin (quotient n 2))) (remainder n 2)))))
 	    
 	    
+	    (define (to-binary n)
+  (define (binary-iter n i)
+    (if (< n 1)
+        0
+        (+
+         (* (remainder n 2) (expt 10 i))
+         (binary-iter (quotient n 2) (+ i 1)))))
+  (binary-iter n 0))
+	    
 (define (bin->dec n)
   (if (zero? n)
       n
