@@ -137,7 +137,14 @@ DOMASHNO:
 	      (else (helper (quotient n 10) (+ temp (* (remainder n 10) (expt 10 i))) (+ i 1)))))
 (define (func n) (helper n 0 0))
 
-obqsnenie:
+
+;po lesno i pravilno: 
+(define (f n)
+  (if (< n 10) #t
+    (if (contains-digit (quotient n 10) (remainder n 10)) #f
+      (f (quotient n 10))))) 
+
+;obqsnenie na trudnoto
 ako n=321
 (helper 321 0 0)-> (contains-digit? 0 1)->f -->
 (helper 32 1 1)->(contains-digit? 1 2)->f
