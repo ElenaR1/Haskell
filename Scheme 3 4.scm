@@ -327,7 +327,7 @@ PRAVILNO POLKZVANE NA MAP
 ;k ot uslovieto mi e 'a' v accumulate. Za da mi trugne zaduljitelno trqbva da si napisha (define (term a) a) nqkude
 (define (f x p)
          (define (term5 l)
-	   (* (expt (- 1) (- l 1)) (/ (fact l) (fact (+ x l)))))
+	   (* (expt (- 1) (- l 1)) (/ (fact l) (/(fact (+ x l)) (fact x)))))
 	    (acc term5 + 0 1 next p))
 ;10 zad
 (define (term1 k) (/ (fact (* 3 k)) (* (expt (fact k) 3) (expt 4 (* 3 k)))))
