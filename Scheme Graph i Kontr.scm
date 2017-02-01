@@ -55,3 +55,27 @@
       (if (car lst) (isItTrue (cdr lst))
           #f)))
 (define lst (sub-graph '((1 2 3) (2 3 4) (3 1 2 4) (4 4 1)) '((2 3 4) (1 2 3) (3 1 2 5) (4 4 1)) ))
+
+
+
+;1 KONTROLNO
+; 1. (a0 a1..an)-> a0 + 1/a1+1/a2+..1+an
+(define (chain l)
+  (if (null? (cdr l)) (car l) 
+    (+ (car l) (/ 1(chain (cdr l))))))
+    
+;2. '(a b)->((().b).a)
+;(a)->(().a)
+
+(define (anti l) 
+ (if (null? l) '()
+   (cons (anti (cdr l)) (car l))))
+   
+;'(a b c d e)-> ((a b) (c d) (e))
+(define l '(a b c d e))
+(define (f l) (pair l '()))
+(define (pair l newList)
+  (cond ((null? l) 'newList)
+    ((null? (cdr l)) (cons (list (car l)) newList))
+      (else (pair (cddr l) (cons (append (list (car l)) (list (cadr l))) newList )))))
+(define (ff l) (reverse (f l)))
