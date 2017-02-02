@@ -55,3 +55,9 @@
 	    (y (+ x 3))
 	     (z (+ x y)))
 	      (+ x y)))
+
+;vmesto let* vlojen let
+(define f
+   (let ((x 7))
+	    (let ((y (+ x 3)))
+	      (+ x y))))
