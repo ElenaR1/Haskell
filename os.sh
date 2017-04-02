@@ -7,7 +7,7 @@ find . -name "*.txt"
 find .  ! -name "*.*" 
 #the ! negates the following expression, here a filename that contains a '.'
 
-#0zad
+#0zad moq versiq
 echo LIST/home
 ls /home
 echo
@@ -26,7 +26,7 @@ find . ! -name "*.txt"|wc -l
 #3zad
 sleep 5; ps| wc -l
 
-#4zad
+#4zad moq versiq
 echo LIST/$1
 ls /$1
 echo
@@ -34,7 +34,24 @@ echo LIST current dir
 ls 
 echo
 cat $2
+#5
+set $1 $2
+bash 4zad $1 $2
+#6
+sleep $1; ps aux| wc -l
+#v sluchaq t.k ne sum v sistemata moje i samo ps t.k ps aux e za obshtite
+# procesi v sistemata, a ps e za lokalnite ot tekushtiq logicheski terminal
 
+#7
+cp $1 temp
+cp $2 $1
+cp temp $2
+rm temp
+
+#9
+grep $1 < $2
+grep $1 < $3
+grep $1 < $4
 
 
 
