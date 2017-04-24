@@ -88,3 +88,17 @@ grep $1 < $4
 bash comproc10 ABC f1 f2 f3 # i vrushta redovete koito sudurjat ABC v tezi failove 
 v moqta papka e taka: bash 9zad.txt ABC 9zt.txt 9ztt.txt
 # grep abc f1= grep abc <f1
+
+
+FOR CYCLES
+for (( i = 1; i <= 5; i++ ))      ### Outer for loop ###
+do
+
+    for (( j = 1 ; j <= 5; j++ )) ### Inner for loop ###
+    do
+          echo -n "$i "
+    done
+
+  echo "" #### print the new line ###
+done
+
