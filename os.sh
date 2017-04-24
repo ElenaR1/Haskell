@@ -86,5 +86,5 @@ grep $1 < $3
 grep $1 < $4
 
 bash comproc10 ABC f1 f2 f3 # i vrushta redovete koito sudurjat ABC v tezi failove 
-
+v moqta papka e taka: bash 9zad.txt ABC 9zt.txt 9ztt.txt
 # grep abc f1= grep abc <f1
