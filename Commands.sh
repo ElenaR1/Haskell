@@ -124,3 +124,44 @@ for each #kato ne e set-nat po default obkojda vsichki pozicionni parametri
         echo $each
 	grep  $STR $each  
  done
+
+
+TRAS1
+a=1
+for i in 1 2 3 4
+do a=`expr $a + 1`
+   for j
+    do if test $j -ne $#
+       then echo $a $j
+       else echo $i
+       fi
+    done
+echo $*
+done
+
+TWO NUMBERS
+read n1 
+read n2
+a=`expr $n1 + $n2`
+echo "Sumata im e: $a"
+b=`expr $n1 \* $n2`
+echo "Proizvedenieto im e: $b"
+
+USERLOG
+until who | grep $1 > /dev/null
+do
+   sleep 5
+done
+echo $1 started a session!!!
+
+USERLOG1
+while true
+do
+  if who | grep $1 > /dev/null
+  then 
+      echo $1 works
+      break
+  else 
+      sleep 5
+  fi
+done
