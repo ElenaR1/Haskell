@@ -102,3 +102,44 @@ do
   echo "" #### print the new line ###
 done
 
+
+BREAK 
+c=1
+while [ $c -le 10 ]
+do
+if [ $c -eq 6 ]
+then
+ break
+else
+echo $c
+c=`expr $c + 1`
+fi
+done
+-> 1 2 3 4 5
+
+#sushtoto
+c=1
+while [ $c -le 10 ]
+do
+if [ $c -eq 6 ]
+then
+ break
+fi
+echo $c
+c=`expr $c + 1`
+done
+
+NESTED
+for i in {1..5}
+do
+for j in {1..5}
+do echo -n $i
+done
+echo #print the new line
+done
+->
+11111
+22222
+33333
+44444
+55555
