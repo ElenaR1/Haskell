@@ -143,3 +143,14 @@ done
 33333
 44444
 55555
+
+myvar='Hello World'
+echo $myvar
+Hello World
+newvar="More $myvar"
+echo $newvar
+More Hello World
+newvar='More $myvar'
+echo $newvar
+More $myvar
+
