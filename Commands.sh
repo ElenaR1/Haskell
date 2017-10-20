@@ -79,7 +79,7 @@ broiexe=`cat exenames | wc -w`
 totalcount=`ls $1 | wc -l` #broq na vsichki failove
 echo Count of files `expr $totalcount - $broiexe`
 
-MESS_1 USER
+MESS_1 USER#chete ot konzolata fak nomer i mu pishe Hello
 read key
 write $key << !
 Hello
